@@ -1,5 +1,5 @@
+from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from fastapi import FastAPI, UploadFile, File
 from extractor import extraer_lineas
 from detector import detectar_duplicados
