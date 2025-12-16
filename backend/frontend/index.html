@@ -203,11 +203,14 @@
       loader.style.display = "flex";
 
       try {
-        const res = await fetch("/check-duplicates", {
-          method: "POST",
-          body: formData
-        });
+      const controller = new AbortController();
+      setTimeout(() => controller.abort(), 300000); // 5 minutos
 
+      const res = await fetch("/check-duplicates", {
+        method: "POST",
+        body: formData,
+        signal: controller.signal
+      });
         const data = await res.json();
         loader.style.display = "none";
 
@@ -234,9 +237,9 @@
         modal.style.display = "flex";
 
       } catch (err) {
-        loader.style.display = "none";
-        status.textContent = "Error connecting to the server.";
-        status.className = "status error";
+        if (err.name === "AbortError") {
+        status.textContent = "The PDF is very large. Please wait longer or try again.";
+        }
       }
     }
   </script>
