@@ -1,15 +1,11 @@
 from collections import defaultdict
 import re
 
-def detectar_duplicados(registros):
+def detectar_duplicados_stream(registros):
     nombres = defaultdict(list)
 
     for r in registros:
-        texto = r["texto"]
-
-        # Captura nombres tipo: "Chapman G", "Clark E Mrs"
-        match = re.match(r"^[A-Z][a-zA-Z]+(\s+[A-Z])+", texto)
-
+        match = re.match(r"^[A-Z][a-zA-Z]+(\s+[A-Z])+", r["texto"])
         if match:
             nombre = match.group().strip()
             nombres[nombre].append({
@@ -17,11 +13,10 @@ def detectar_duplicados(registros):
                 "linea": r["linea"]
             })
 
-    duplicados = {
+    return {
         nombre: datos
         for nombre, datos in nombres.items()
         if len(datos) > 1
     }
 
-    return duplicados
 
