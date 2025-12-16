@@ -1,8 +1,8 @@
+from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi import FastAPI, UploadFile, File
-from extractor import extraer_lineas
-from detector import detectar_duplicados
+from extractor import extraer_lineas_stream
+from detector import detectar_duplicados_stream
 import shutil
 import os
 
@@ -15,7 +15,6 @@ def home():
     with open("frontend/index.html", "r", encoding="utf-8") as f:
         return f.read()
 
-
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
@@ -26,13 +25,13 @@ async def check_duplicates(file: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    registros = extraer_lineas(file_path)
-    duplicados = detectar_duplicados(registros)
+    registros = extraer_lineas_stream(file_path)
+    duplicados = detectar_duplicados_stream(registros)
 
     if not duplicados:
         return {
             "status": "ok",
-            "message": "No hay duplicidad en los nombres"
+            "message": "No duplicate names found"
         }
 
     return {
