@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Uploads
+uploads/
+*.pdf
+
+# OS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
