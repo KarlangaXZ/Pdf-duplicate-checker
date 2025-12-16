@@ -1,39 +1,41 @@
 # 📄 PDF Duplicate Checker
 
-Aplicación web que permite **analizar archivos PDF** y detectar **nombres duplicados**, indicando **en qué página y línea** aparece cada repetición.
+Web application that allows you to **analyze PDF files** and detect **duplicate names**, indicating **the page and line** where each repetition appears.
 
-El sistema es capaz de procesar PDFs con **múltiples columnas** sin importar el formato, mostrando los resultados directamente en una interfaz web clara y amigable.
-
----
-
-## 🚀 Funcionalidades
-
-- 📂 Subida de archivos PDF desde el navegador
-- 🔍 Análisis automático del contenido del PDF
-- 👥 Detección de nombres duplicados
-- 📍 Muestra página y línea de cada duplicado
-- 📊 Resultados visualizados en una tabla
-- 🔄 Indicador de carga durante el análisis
-- 🪟 Modal informativo con el resultado final
+The system is capable of processing PDFs with **multiple columns**, regardless of their layout, displaying the results directly in a clean and user-friendly web interface.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🚀 Features
+
+* 📂 Upload PDF files from the browser
+* 🔍 Automatic analysis of PDF content
+* 👥 Duplicate name detection
+* 📍 Displays page and line for each duplicate
+* 📊 Results displayed in a table
+* 🔄 Loading indicator during analysis
+* 🪟 Informational modal with the final result
+
+---
+
+## 🛠️ Technologies Used
 
 ### Backend
-- **Python 3**
-- **FastAPI**
-- **pdfplumber** (extracción de texto desde PDFs)
-- **Uvicorn**
+
+* **Python 3**
+* **FastAPI**
+* **pdfplumber** (text extraction from PDFs)
+* **Uvicorn**
 
 ### Frontend
-- **HTML5**
-- **CSS3**
-- **JavaScript (Fetch API)**
+
+* **HTML5**
+* **CSS3**
+* **JavaScript (Fetch API)**
 
 ---
 
-## 📁 Estructura del proyecto
+## 📁 Project Structure
 
 ```
 pdf-duplicate-checker/
@@ -53,36 +55,36 @@ pdf-duplicate-checker/
 
 ---
 
-## ▶️ Cómo ejecutar el proyecto localmente
+## ▶️ How to Run the Project Locally
 
-### 1️⃣ Clonar el repositorio
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/KarlangaXZ/pdf-duplicate-checker.git
 cd pdf-duplicate-checker
 ```
 
-### 2️⃣ Crear entorno virtual
+### 2️⃣ Create a virtual environment
 
 ```bash
 python -m venv venv
 source venv/bin/activate
 ```
 
-### 3️⃣ Instalar dependencias
+### 3️⃣ Install dependencies
 
 ```bash
 pip install -r backend/requirements.txt
 ```
 
-### 4️⃣ Ejecutar el servidor
+### 4️⃣ Run the server
 
 ```bash
 cd backend
 uvicorn app:app --reload
 ```
 
-### 5️⃣ Abrir en el navegador
+### 5️⃣ Open in your browser
 
 ```
 http://127.0.0.1:8000
@@ -90,50 +92,42 @@ http://127.0.0.1:8000
 
 ---
 
-## 📌 Uso de la aplicación
+## 📌 How to Use the Application
 
-1. Abrir la aplicación en el navegador
-2. Seleccionar un archivo PDF
-3. Presionar **Analizar PDF**
-4. Esperar el análisis
-5. Visualizar resultados en pantalla
+1. Open the application in your browser
+2. Select a PDF file
+3. Click **Analyze PDF**
+4. Wait for the analysis to complete
+5. View the results on the screen
 
----
 
-## 📷 Capturas de pantalla
+## 🧠 Use Cases
 
-*(Agrega aquí capturas del frontend mostrando el análisis y la tabla de resultados)*
-
----
-
-## 🧠 Casos de uso
-
-- Validación de listas de nombres
-- Auditoría de documentos
-- Control de duplicados en reportes
-- Sistemas de facturación o RRHH
+* Name list validation
+* Document auditing
+* Duplicate control in reports
+* Billing or HR systems
 
 ---
 
-## 🔐 Notas de seguridad
+## 🔐 Security Notes
 
-- Los PDFs subidos no se almacenan permanentemente
-- No se incluyen archivos PDF reales en el repositorio
-
----
-
-## 👤 Autor
-
-**Carlos Linares**  
-Desarrollador Backend / Fullstack
+* Uploaded PDFs are not stored permanently
+* No real PDF files are included in the repository
 
 ---
 
-## 📄 Licencia
+## 👤 Author
 
-Este proyecto se distribuye bajo la licencia **MIT**.
+**Carlos Linares**
+Backend / Fullstack Developer
 
 ---
 
-⭐ Si este proyecto te resulta útil, no olvides darle una estrella en GitHub
+## 📄 License
 
+This project is distributed under the **MIT** license.
+
+---
+
+⭐ If you find this project useful, don’t forget to give it a star on GitHub
