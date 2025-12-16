@@ -13,7 +13,7 @@ def start_server():
     )
 
 def start_desktop():
-    # Espera a que FastAPI arranque
+ 
     time.sleep(1.5)
 
     webview.create_window(
