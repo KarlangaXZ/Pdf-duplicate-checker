@@ -23,6 +23,10 @@
       color: #ff8c00;
       margin-bottom: 20px;
     }
+    small {
+      font-size: 0.4em;
+      color: #888;
+    }
 
     .upload-box {
       display: flex;
@@ -133,7 +137,7 @@
 <body>
 
   <div class="container">
-    <h1>PDF Duplicate Checker</h1>
+    <h1>PDF Duplicate Checker <small>by Carlos Linares</small></h1>
 
     <div class="upload-box">
       <input type="file" id="pdfFile" accept="application/pdf" />
@@ -142,7 +146,7 @@
 
     <div id="loader" class="loader">
       <div class="spinner"></div>
-      <span>Analizando PDF, por favor espere...</span>
+      <span>Parsing PDF, please wait......</span>
     </div>
 
     <div id="status" class="status"></div>
@@ -150,20 +154,22 @@
     <table id="resultsTable" style="display:none;">
       <thead>
         <tr>
-          <th>Nombre</th>
-          <th>Página</th>
-          <th>Línea</th>
+          <th>Name</th>
+          <th>Pages</th>
+          <th>Line</th>
         </tr>
       </thead>
       <tbody id="resultsBody"></tbody>
     </table>
+    <p></p>
   </div>
+  
 
   <div id="modal" class="modal">
     <div class="modal-content">
       <h3>Resultado</h3>
       <p id="modalMessage"></p>
-      <button onclick="closeModal()">Cerrar</button>
+      <button onclick="closeModal()">Close</button>
     </div>
   </div>
 
@@ -224,12 +230,12 @@
         }
 
         table.style.display = "table";
-        modalMessage.textContent = `Se encontraron ${data.total} nombres duplicados`;
+        modalMessage.textContent = `Found ${data.total} duplicate names`;
         modal.style.display = "flex";
 
       } catch (err) {
         loader.style.display = "none";
-        status.textContent = "Error conectando con el servidor.";
+        status.textContent = "Error connecting to the server.";
         status.className = "status error";
       }
     }
