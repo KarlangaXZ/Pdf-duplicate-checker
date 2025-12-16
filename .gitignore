@@ -16,3 +16,11 @@ uploads/
 # IDEs
 .vscode/
 .idea/
+
+
+__pycache__/
+venv/
+uploads/
+dist/
+build/
+*.spec
