@@ -10,9 +10,10 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
-@app.get("/")
-def read_index():
-    return FileResponse("frontend/index.html")
+@app.get("/", response_class=HTMLResponse)
+def home():
+    with open("frontend/index.html", "r", encoding="utf-8") as f:
+        return f.read()
 
 
 UPLOAD_DIR = "uploads"
